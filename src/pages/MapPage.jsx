@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
 
 function MapPage () {
     return (
@@ -14,8 +14,12 @@ function MapPage () {
             attribution="&copy; OpenstreetMap"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <Marker position={[-23.55052, -46.633308]}>
+            <Popup>
+                 🤡 Anne
+            </Popup>
+        </Marker>
         </MapContainer>
-
     )
 }
 export default MapPage
