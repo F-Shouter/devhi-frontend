@@ -10,8 +10,8 @@ function ProfilePopup ({profile}) {
                 {profile.technologies.join(", ")}
             </p>
             <p>
-                {profile.github} <br />
-                {profile.linkedin}
+                {profile.githubURL} <br />
+                {profile.linkedinURL}
             </p>
         </div>
     )

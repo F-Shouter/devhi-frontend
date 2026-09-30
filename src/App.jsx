@@ -1,8 +1,8 @@
-import MapPage from "./pages/Mappage"
+import CreateProfilePage from "./pages/CreateProfilePage"
 
 function App() {
   return (
-    <MapPage />
+    <CreateProfilePage />
   )
 }
 

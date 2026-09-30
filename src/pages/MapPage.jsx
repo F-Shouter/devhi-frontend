@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react"
 import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
-import { profiles } from "../data/profiles"
 import ProfilePopup from "../components/ProfilePopup"
 
 function MapPage () {
+
+    const [profiles, setProfiles] = useState([])
+    console.log(profiles)
+    
+    useEffect(() => {
+        fetch('http://localhost:8080/profiles')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setProfiles(data)
+        })
+    }, [])
+
     return (
         <MapContainer 
             center={[-14.235, -51.9253]}
