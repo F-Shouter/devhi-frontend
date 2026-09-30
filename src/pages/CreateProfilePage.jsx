@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../styles/CreateProfilePage.css"
 function CreateProfilePage() {
 
     const [name, setName] = useState("")
@@ -25,74 +26,73 @@ function CreateProfilePage() {
             longitude: -46.633308
         }
 
-        console.log(profile)
+        const response = await fetch(
+            "http://localhost:8080/profiles",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }, 
+                body: JSON.stringify(profile)
+            }
+        )
+        if(response.ok) {
+            alert("Perfil criado com SUCESSO ! ! !")
+        }
+
+        console.log(response)
     }
 
     return (
-        <div>
-            <h1>Criar Perfil</h1>
-            <p>Nome: {name}</p>
-            <p>Cidade: {city}</p>
+        <div className="create-profile-container">
+            <div className="create-profile-card">
+                <h1>Criar Perfil</h1>
+                <input 
+                    type="text" 
+                    placeholder="Nome"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                />
+                <input 
+                    type="text" 
+                    placeholder="Avatar"
+                    value={avatar}
+                    onChange={(event) => setAvatar(event.target.value)}
 
-            <input 
-                type="text" 
-                placeholder="Nome"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-            />
-            <br />
+                />
+                <textarea
+                    type="text" 
+                    placeholder="Biografia"
+                    value={bio}
+                    onChange={(event) => setBio(event.target.value)}
+                />
+                <input
+                    type="text" 
+                    placeholder="Cidade"
+                    value={city}
+                    onChange={(event) => setCity(event.target.value)}
+                />
 
-            <input 
-                type="text" 
-                placeholder="Avatar"
-                value={avatar}
-                onChange={(event) => setAvatar(event.target.value)}
-
-            />
-            <br />
-
-            <input
-                type="text" 
-                placeholder="Biografia"
-                value={bio}
-                onChange={(event) => setBio(event.target.value)}
-            />
-            <br />
-
-            <input
-                type="text" 
-                placeholder="Cidade"
-                value={city}
-                onChange={(event) => setCity(event.target.value)}
-            />
-            <br />
-
-            <input
-                type="text" 
-                placeholder="URL Perfil para Github"
-                value={githubURL}
-                onChange={(event) => setGithubURL(event.target.value)}
-            />
-            <br />
-
-            <input
-                type="text" 
-                placeholder="URL Perfil para Linkedin"
-                value={linkedinURL}
-                onChange={(event) => setLinkedinURL(event.target.value)}
-            />
-            <br />
-
-            <input
-                type="text" 
-                placeholder="Quais technologias usa?"
-                value={technologies}
-                onChange={(event) => setTechnologies(event.target.value)}
-            />
-            <br /><br />
-
-            <button onClick={handleSubmit}>Cadastrar</button>
-
+                <input
+                    type="text" 
+                    placeholder="URL Perfil para Github"
+                    value={githubURL}
+                    onChange={(event) => setGithubURL(event.target.value)}
+                />
+                <input
+                    type="text" 
+                    placeholder="URL Perfil para Linkedin"
+                    value={linkedinURL}
+                    onChange={(event) => setLinkedinURL(event.target.value)}
+                />
+                <input
+                    type="text" 
+                    placeholder="Quais technologias usa?"
+                    value={technologies}
+                    onChange={(event) => setTechnologies(event.target.value)}
+                />
+                <button onClick={handleSubmit}>Cadastrar</button>
+            </div>
         </div>
     )
 }

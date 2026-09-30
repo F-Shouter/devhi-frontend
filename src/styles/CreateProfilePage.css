@@ -1,0 +1,47 @@
+.create-profile-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.create-profile-card {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.create-profile-card h1 {
+    text-align: center;
+}
+
+.create-profile-card input,
+.create-profile-card textarea {
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+}
+
+.create-profile-card textarea {
+    min-height: 100px;
+}
+
+.create-profile-card button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+
+.create-profile-card button:hover {
+    background-color: #1e4ed8;
+}
