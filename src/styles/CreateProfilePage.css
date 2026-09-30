@@ -19,6 +19,7 @@
 
 .create-profile-card h1 {
     text-align: center;
+    margin: 0;
 }
 
 .create-profile-card input,
