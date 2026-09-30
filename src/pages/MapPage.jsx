@@ -1,43 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
+import { profiles } from "../data/profiles"
+import ProfilePopup from "../components/ProfilePopup"
 
-const profiles = [
-    {
-        id: 1,
-        name: "Anne",
-        avatar: "🤡",
-        bio: "Estudando Programação",
-        city: "São Paulo",
-        github: "github.com/anne",
-        linkedin: "linkedin.com/in/anne",
-        technologies: ["Java", "AWS", "React"],
-        latitude: -23.55052,
-        longitude: -46.633308
-    },
-    {
-        id: 2,
-        name: "João",
-        avatar: "🤖",
-        bio: "Sendo PO, Analista Funcional!",
-        city: "Rio de Janeiro",
-        github: "github.com/joao",
-        linkedin: "linkedin.com/in/joao",
-        technologies: ["Scrum Master", "Jira"],
-        latitude: -22.9068,
-        longitude: -43.1729
-    },
-    {
-        id: 3,
-        name: "Maria",
-        avatar: "☕",
-        bio: "Desenvolvedor Backend",
-        city: "Curitiba",
-        github: "github.com/maria",
-        linkedin: "linkedin.com/in/maria",
-        technologies: ["Spring Boot", "Java"],
-        latitude: -25.4284,
-        longitude: -49.2733
-    }
-]
 function MapPage () {
     return (
         <MapContainer 
@@ -58,16 +22,7 @@ function MapPage () {
                 position={[profile.latitude, profile.longitude]}
             >
                 <Popup>
-                    <div>
-                        <h3>
-                            {profile.avatar} {profile.name} - {profile.city}
-                        </h3>
-                        <p>{profile.bio} <br />
-                        Tecnologias:
-                            {profile.technologies.join(", ")}
-                        </p>
-                        <p>{profile.github} <br /> {profile.linkedin}</p>
-                    </div>
+                    <ProfilePopup profile={profile} />
                 </Popup>
             </Marker>
         ))}
